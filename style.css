@@ -3,33 +3,56 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+}
+
 .rectangle {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 1280px;
-  height: 100px;
-  background: #d2dbebFF;    
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100px;
+    background: #d2dbebFF;    
 }
 
 .shapeCircle {
-  position: absolute;
-  left: 600px;
-  top: 50px;
-  width: 600px;
-  height: 80px;
-  background: #00385aFF;
-  border-start-start-radius: 100px;
-  border-start-end-radius: 100px;
-  border-end-start-radius: 100px;
-  border-end-end-radius: 100px;    
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    width: 600px;
+    height: 80px;
+    background: #00385aFF;
+    box-shadow: inset 8px 6px 6px 3px #00000033;
+    border-start-start-radius: 100px;
+    border-start-end-radius: 100px;
+    border-end-start-radius: 100px;
+    border-end-end-radius: 100px;    
 }
+
+/* .sc {
+    position: absolute;
+    left: 1075px;
+    top: 70px;
+    width: 100px;
+    height: 40px;
+    background: #d2dbebFF;
+    border-start-start-radius: 50px;
+    border-start-end-radius: 50px;
+    border-end-start-radius: 50px;
+    border-end-end-radius: 50px;
+} */
 
 .fullstackdev {
     size: 500px 0;
     position: absolute;
-    left: 388px;
-    top: 315px;
+    margin: 0 auto;
+    top: 300px;
     width: 504px;
     color: #6a90b4;
 }
