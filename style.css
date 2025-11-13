@@ -20,6 +20,19 @@ body {
     background: #d2dbebFF;    
 }
 
+/* .sc {
+    position: absolute;
+    left: 1075px;
+    top: 70px;
+    width: 100px;
+    height: 40px;
+    background: #d2dbebFF;
+    border-start-start-radius: 50px;
+    border-start-end-radius: 50px;
+    border-end-start-radius: 50px;
+    border-end-end-radius: 50px;
+} */
+
 .shapeCircle {
     position: absolute;
     right: 40px;
@@ -33,19 +46,6 @@ body {
     border-end-start-radius: 100px;
     border-end-end-radius: 100px;    
 }
-
-/* .sc {
-    position: absolute;
-    left: 1075px;
-    top: 70px;
-    width: 100px;
-    height: 40px;
-    background: #d2dbebFF;
-    border-start-start-radius: 50px;
-    border-start-end-radius: 50px;
-    border-end-start-radius: 50px;
-    border-end-end-radius: 50px;
-} */
 
 .fullstackdev {
     size: 500px 0;
