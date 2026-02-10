@@ -24,6 +24,8 @@ body {
         radial-gradient(circle at 8% 18%, #1e5f9752 0%, transparent 32%),
         radial-gradient(circle at 92% 15%, #3ea3ff33 0%, transparent 28%),
         linear-gradient(160deg, var(--bg-1) 0%, #08203a 42%, var(--bg-2) 100%);
+    background-size: 100% 100%, 100% 100%, 180% 180%;
+    animation: ambientShift 18s ease-in-out infinite alternate;
     color: var(--text-main);
     font-family: "Inter", "Segoe UI", sans-serif;
     padding: 24px;
@@ -51,6 +53,7 @@ main {
     padding: 0 14px 0 24px;
     box-shadow: 0 18px 35px #00000038;
     border: 1px solid #ffffff66;
+    animation: slideDown 0.8s ease both;
 }
 
 .brand {
@@ -74,7 +77,7 @@ main {
     padding: 8px 14px;
     border-radius: 999px;
     font-size: 0.9rem;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .nav-links a:hover,
@@ -91,6 +94,7 @@ main {
     border-radius: 24px;
     background: linear-gradient(180deg, #103658da 0%, #0a2137c2 100%);
     box-shadow: inset 0 1px 0 #ffffff21, 0 24px 48px #00000038;
+    animation: fadeUp 0.8s ease 0.15s both;
 }
 
 .intro {
@@ -132,7 +136,24 @@ h1 {
     font-weight: 700;
     padding: 12px 22px;
     border-radius: 12px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::after {
+    content: "";
+    position: absolute;
+    inset: -40% auto -40% -120%;
+    width: 50%;
+    transform: rotate(20deg);
+    background: linear-gradient(90deg, transparent, #ffffff7a, transparent);
+    transition: left 0.6s ease;
+}
+
+.cta:hover::after,
+.cta:focus-visible::after {
+    left: 130%;
 }
 
 .cta:hover,
@@ -163,11 +184,22 @@ h1 {
     padding: 8px 12px;
     font-size: 0.88rem;
     color: #d7e9fb;
+    animation: fadeUp 0.55s ease both;
 }
+
+.hero-highlights li:nth-child(1) { animation-delay: 0.25s; }
+.hero-highlights li:nth-child(2) { animation-delay: 0.35s; }
+.hero-highlights li:nth-child(3) { animation-delay: 0.45s; }
 
 .section {
     margin-top: 60px;
+    animation: fadeUp 0.8s ease both;
 }
+
+.services { animation-delay: 0.2s; }
+.projects { animation-delay: 0.35s; }
+.tools { animation-delay: 0.45s; }
+.contact { animation-delay: 0.55s; }
 
 .section-head {
     margin-bottom: 16px;
@@ -201,7 +233,7 @@ h1 {
     background: linear-gradient(180deg, #12395e 0%, var(--card) 100%);
     border: 1px solid var(--card-border);
     box-shadow: 0 10px 24px #00000022;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover,
@@ -238,11 +270,13 @@ h1 {
     color: #8fcbff;
     text-decoration: none;
     font-weight: 600;
+    transition: transform 0.25s ease;
 }
 
 .text-link:hover,
 .text-link:focus-visible {
     text-decoration: underline;
+    transform: translateX(3px);
     outline: none;
 }
 
@@ -262,6 +296,12 @@ h1 {
     color: #d9ecff;
     font-weight: 600;
     font-size: 0.92rem;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.tool-list li:hover {
+    transform: translateY(-2px);
+    border-color: #76b0df;
 }
 
 .contact {
@@ -280,6 +320,7 @@ h1 {
     text-align: center;
     position: relative;
     z-index: 2;
+    animation: fadeUp 0.8s ease 0.7s both;
 }
 
 .orb-wrapper {
@@ -306,9 +347,48 @@ h1 {
 .orb-3 { animation-delay: 1.6s; }
 .orb-4 { animation-delay: 2.4s; }
 
+@keyframes ambientShift {
+    0% { background-position: 0% 0%, 100% 0%, 0% 50%; }
+    100% { background-position: 8% 2%, 92% -2%, 100% 50%; }
+}
+
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 @media (max-width: 700px) {
