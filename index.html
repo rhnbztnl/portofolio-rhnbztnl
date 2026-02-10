@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portofolio sederhana Full Stack Developer dengan keahlian, proyek, dan kontak.">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Portofolio | Full Stack Developer</title>
 </head>
 <body>
-    <header class="topbar" aria-label="Navigasi utama">
+    <header class="topbar reveal" aria-label="Navigasi utama">
         <a class="brand" href="#about">RH</a>
         <nav class="nav-links">
             <a href="#about">Tentang</a>
@@ -19,7 +20,7 @@
     </header>
 
     <main>
-        <section class="hero" id="about">
+        <section class="hero reveal" id="about" data-parallax="0.08">
             <p class="intro">Halo, saya Rehan 👋</p>
             <h1>
                 <span>FULL STACK</span>
@@ -33,58 +34,146 @@
                 <a class="cta" href="#projects">Lihat Proyek</a>
                 <a class="cta ghost" href="#contact">Diskusi Proyek</a>
             </div>
+            <ul class="hero-highlights" aria-label="Highlight profesional">
+                <li class="reveal-card">⚡ Optimasi performa web</li>
+                <li class="reveal-card">🔒 Fokus keamanan dasar aplikasi</li>
+                <li class="reveal-card">🚀 Delivery cepat & terstruktur</li>
+            </ul>
         </section>
 
-        <section class="services section" id="services" aria-label="Keahlian utama">
-            <h2>Keahlian</h2>
-            <div class="cards">
-                <article class="card">
+        <section class="services section reveal" id="services" aria-label="Keahlian utama">
+            <div class="section-head reveal-item">
+                <p class="eyebrow">Core Expertise</p>
+                <h2>Keahlian</h2>
+            </div>
+            <div class="cards stagger-group">
+                <article class="card reveal-card">
                     <h3>Frontend Development</h3>
                     <p>Implementasi UI responsif, aksesibel, dan performa tinggi dengan fokus user experience.</p>
                 </article>
-                <article class="card">
+                <article class="card reveal-card">
                     <h3>Backend & API</h3>
                     <p>Bangun API terstruktur, aman, dan mudah dimaintain untuk kebutuhan aplikasi modern.</p>
                 </article>
-                <article class="card">
+                <article class="card reveal-card">
                     <h3>Deployment</h3>
                     <p>Setup deployment, optimasi performa, serta integrasi workflow agar rilis lebih cepat.</p>
                 </article>
+                <article class="card reveal-card">
+                    <h3>UI Refinement</h3>
+                    <p>Polishing tampilan web agar terlihat modern, konsisten, dan nyaman digunakan.</p>
+                </article>
+                <article class="card reveal-card">
+                    <h3>Testing Dasar</h3>
+                    <p>Validasi fitur inti secara bertahap agar bug utama terdeteksi sebelum rilis.</p>
+                </article>
+                <article class="card reveal-card">
+                    <h3>Maintenance</h3>
+                    <p>Perbaikan berkelanjutan, update kecil, serta monitoring performa setelah aplikasi online.</p>
+                </article>
             </div>
         </section>
 
-        <section class="projects section" id="projects" aria-label="Proyek unggulan">
-            <h2>Portofolio Proyek</h2>
-            <div class="project-list">
-                <article class="project-item">
+        <section class="projects section reveal" id="projects" aria-label="Proyek unggulan">
+            <div class="section-head reveal-item">
+                <p class="eyebrow">Selected Work</p>
+                <h2>Portofolio Proyek</h2>
+            </div>
+            <div class="project-list stagger-group">
+                <article class="project-item reveal-card">
                     <p class="project-tag">Web App</p>
                     <h3>Dashboard Inventori</h3>
                     <p>Aplikasi dashboard untuk monitoring stok, laporan, dan notifikasi restock otomatis.</p>
+                    <button
+                        class="text-link project-detail-trigger"
+                        type="button"
+                        data-project="inventori"
+                    >Lihat studi kasus →</button>
                 </article>
-                <article class="project-item">
+                <article class="project-item reveal-card">
                     <p class="project-tag">Company Profile</p>
                     <h3>Landing Page Bisnis</h3>
                     <p>Halaman pemasaran dengan fokus konversi, SEO dasar, dan optimasi kecepatan loading.</p>
+                    <button
+                        class="text-link project-detail-trigger"
+                        type="button"
+                        data-project="landing"
+                    >Lihat studi kasus →</button>
+                </article>
+                <article class="project-item reveal-card">
+                    <p class="project-tag">E-Commerce</p>
+                    <h3>Catalog & Checkout</h3>
+                    <p>Integrasi katalog produk, keranjang belanja, dan alur checkout sederhana.</p>
+                    <button
+                        class="text-link project-detail-trigger"
+                        type="button"
+                        data-project="ecommerce"
+                    >Lihat studi kasus →</button>
+                </article>
+                <article class="project-item reveal-card">
+                    <p class="project-tag">Admin System</p>
+                    <h3>Manajemen Konten</h3>
+                    <p>Panel admin untuk kelola artikel, media, serta role user berbasis hak akses.</p>
+                    <button
+                        class="text-link project-detail-trigger"
+                        type="button"
+                        data-project="cms"
+                    >Lihat studi kasus →</button>
                 </article>
             </div>
         </section>
 
-        <section class="contact section" id="contact" aria-label="Kontak">
+        <section class="section tools reveal" aria-label="Teknologi favorit">
+            <div class="section-head reveal-item">
+                <p class="eyebrow">Workflow</p>
+                <h2>Tools Favorit</h2>
+            </div>
+            <ul class="tool-list stagger-group">
+                <li class="reveal-card">Figma</li>
+                <li class="reveal-card">VS Code</li>
+                <li class="reveal-card">GitHub</li>
+                <li class="reveal-card">Postman</li>
+                <li class="reveal-card">Docker</li>
+                <li class="reveal-card">Vercel</li>
+            </ul>
+        </section>
+
+        <section class="contact section reveal" id="contact" aria-label="Kontak">
             <h2>Mari berkolaborasi</h2>
             <p>Punya ide atau project? Kirim pesan dan kita bahas solusi terbaiknya.</p>
             <a class="cta" href="mailto:hello@portfolio.dev">hello@portfolio.dev</a>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer reveal-item">
         <p>© 2026 Rehan — Full Stack Developer</p>
     </footer>
 
-    <section class="orb-wrapper" aria-hidden="true">
+    <section class="orb-wrapper" aria-hidden="true" data-parallax="0.18">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
         <div class="orb orb-4"></div>
     </section>
+
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+        <div class="project-modal__backdrop" data-close-modal="true"></div>
+        <article class="project-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+            <button class="project-modal__close" type="button" id="modal-close" aria-label="Tutup detail proyek">×</button>
+            <div class="project-modal__image" id="modal-image" aria-hidden="true"></div>
+            <h3 id="project-modal-title">Judul Proyek</h3>
+            <p class="project-modal__stack" id="modal-stack"></p>
+
+            <div class="project-modal__section">
+                <h4>Tantangan</h4>
+                <p id="modal-challenge"></p>
+            </div>
+
+            <div class="project-modal__section">
+                <h4>Solusi</h4>
+                <p id="modal-solution"></p>
+            </div>
+        </article>
+    </div>
 </body>
 </html>

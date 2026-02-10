@@ -11,8 +11,8 @@ if (!prefersReducedMotion) {
             }
         });
     }, {
-        threshold: 0.16,
-        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.15,
+        rootMargin: '0px 0px -10% 0px',
     });
 
     revealTargets.forEach((target) => observer.observe(target));
@@ -20,27 +20,36 @@ if (!prefersReducedMotion) {
     document.querySelectorAll('.stagger-group').forEach((group) => {
         const items = group.querySelectorAll('.reveal-card');
         items.forEach((item, index) => {
-            item.style.setProperty('--reveal-delay', `${Math.min(index * 0.08, 0.48)}s`);
+            item.style.setProperty('--reveal-delay', `${Math.min(index * 0.09, 0.54)}s`);
         });
     });
 
     const parallaxElements = document.querySelectorAll('[data-parallax]');
     let ticking = false;
+    let currentY = window.scrollY;
+    let targetY = window.scrollY;
 
     const updateParallax = () => {
-        const scrollY = window.scrollY;
+        currentY += (targetY - currentY) * 0.12;
+
         parallaxElements.forEach((element) => {
             const speed = Number(element.dataset.parallax) || 0;
-            const y = -(scrollY * speed);
+            const y = -(currentY * speed);
             element.style.setProperty('--parallax-y', `${y.toFixed(2)}px`);
         });
-        ticking = false;
+
+        if (Math.abs(targetY - currentY) > 0.2) {
+            window.requestAnimationFrame(updateParallax);
+        } else {
+            ticking = false;
+        }
     };
 
     window.addEventListener('scroll', () => {
+        targetY = window.scrollY;
         if (!ticking) {
-            window.requestAnimationFrame(updateParallax);
             ticking = true;
+            window.requestAnimationFrame(updateParallax);
         }
     }, { passive: true });
 
